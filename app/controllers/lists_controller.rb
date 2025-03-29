@@ -17,6 +17,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to root_path, status: :see_other
+  end
+
   def show
     @bookmark = Bookmark.new
     @list = List.find(params[:id])
